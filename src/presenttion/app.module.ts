@@ -17,9 +17,12 @@ export class AppModule {
     this.routes = routes;
   }
   async start() {
+    // TODO: todos middlewares
+    this.app.use(express.json());
+    this.app.use(express.urlencoded({ extended: true }));
     //  TODO: Usar todas las rutas definida
-    await this.app.use(this.routes);
-    await this.app.listen(this.port, () => {
+    this.app.use(this.routes);
+    this.app.listen(this.port, () => {
       console.log(`aplicacion corriendo ${this.baseUrl}:${this.port}`);
       console.log(`aplicacion corriendo ${this.baseUrl}:${this.port}/api/v1`);
     });
