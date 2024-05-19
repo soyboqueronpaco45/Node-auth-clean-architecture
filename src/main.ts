@@ -7,7 +7,8 @@ import { AppRoutes } from "./presenttion/app.routes";
 })();
 
 async function main() {
-  const { PORT } = envs;
+  const { PORT, ACCEPTED_ORIGINS } = envs;
+
   new AppModule({
     port: PORT,
     baseUrl: Bun.env.BASE_URL,

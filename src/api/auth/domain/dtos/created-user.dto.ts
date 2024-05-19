@@ -13,8 +13,6 @@ export class CreatedUserDto {
     if (!ValidarorsAdapter.nameValidator.test(name))
       return ["El formato no es valido"];
     if (!username) return ["El usuario es obligatorio"];
-    if (!ValidarorsAdapter.usernameValidator.test(username))
-      return ["usuario no es valido"];
     if (!email) return ["El correo electronico es obligatorio"];
     if (!ValidarorsAdapter.emailValidator.test(email))
       return ["correo no es valido"];

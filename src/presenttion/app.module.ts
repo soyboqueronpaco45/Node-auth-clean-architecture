@@ -1,5 +1,6 @@
 import express, { Router } from "express";
 import { collapseTextChangeRangesAcrossMultipleVersions } from "typescript";
+import { corsAdapter } from "../config";
 interface Options {
   port: number;
   baseUrl?: string;
@@ -18,6 +19,8 @@ export class AppModule {
   }
   async start() {
     // TODO: todos middlewares
+    // cors
+    this.app.use(corsAdapter())
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
     //  TODO: Usar todas las rutas definida
